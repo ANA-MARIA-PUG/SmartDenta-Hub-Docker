@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  db:
+    image: couchdb:3.3
+    ports:
+      - "5984:5984"
+    environment:
+      - COUCHDB_USER=ana
+      - COUCHDB_PASSWORD=anamariapug10
+  backend:
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
